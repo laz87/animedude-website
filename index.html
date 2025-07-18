@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anime Directory - YouTube Shorts Ad</title>
+    <title>Web Resources Directory</title>
     <style>
         * {
             margin: 0;
@@ -12,323 +12,235 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            overflow: hidden;
-            position: relative;
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
         }
 
+        h1 {
+            text-align: left;
+            color: white;
+            margin: 0 0 20px 0;
+            font-size: 1.5em;
+            font-weight: 700;
+            padding-left: 10px;
+        }
+
+        /* Container for side-by-side layout */
         .container {
-            width: 100vw;
-            height: 100vh;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: flex-start;
         }
 
-        /* Animated background particles */
-        .particles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.6);
-            border-radius: 50%;
-            animation: float 6s infinite ease-in-out;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 1; }
-            50% { transform: translateY(-100px) rotate(180deg); opacity: 0.5; }
-        }
-
-        /* Main content */
-        .content {
-            position: relative;
-            z-index: 10;
-            text-align: center;
-            color: white;
-            max-width: 90%;
-        }
-
-        .hook {
-            font-size: 1.8em;
-            font-weight: bold;
-            margin-bottom: 5px;
-            animation: slideInUp 0.8s ease-out;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            line-height: 1.1;
-        }
-
-        .problem {
-            font-size: 1em;
-            margin-bottom: 8px;
-            animation: slideInUp 0.8s ease-out 0.3s both;
-            opacity: 0;
-            line-height: 1.1;
-        }
-
-        .solution {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 12px;
-            margin-bottom: 8px;
-            animation: slideInUp 0.8s ease-out 0.6s both;
-            opacity: 0;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .solution h2 {
-            font-size: 1.4em;
-            margin-bottom: 5px;
-            color: #FFD700;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-            line-height: 1.1;
-        }
-
-        .solution p {
-            font-size: 0.9em;
-            margin-bottom: 8px;
-            line-height: 1.1;
-        }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 6px;
-            margin-top: 8px;
-        }
-
-        .feature {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 6px;
+        .search-engine-box {
+            width: 300px;
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 8px;
-            font-size: 0.85em;
-            transition: transform 0.3s ease;
-            line-height: 1.1;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            flex: 0 0 300px; /* Prevents boxes from growing/shrinking */
         }
 
-        .feature:hover {
-            transform: scale(1.05);
+        .description {
+            font-size: 0.8em;
+            color: #7f8c8d;
+            margin-bottom: 0px;
+            font-style: italic;
+            text-align: left;
+            padding-left: 0px;
         }
 
-        .cta {
-            animation: slideInUp 0.8s ease-out 0.9s both;
-            opacity: 0;
+        .search-engine-box h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            font-weight: 600;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #667eea;
         }
 
-        .cta-button {
-            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
-            color: white;
-            padding: 10px 25px;
-            font-size: 1.2em;
-            font-weight: bold;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
-            animation: pulse 2s infinite;
+        .search-list {
+            list-style-type: none;
         }
 
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 25px rgba(255, 107, 107, 0.6);
+        .search-list li {
+            margin-bottom: 10px;
+            font-size: 1em;
         }
 
-        .website-url {
-            margin-top: 6px;
-            font-size: 0.95em;
-            color: #FFD700;
-            font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        .search-list a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            display: block;
+            padding: 3px 0;
         }
 
-        /* Animations */
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
+        .search-list a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        .footer {
+            text-align: left;
+            margin-top: 30px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.8em;
+            padding-left: 10px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            
+            .search-engine-box {
+                width: 100%;
+                flex: 1;
             }
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        /* Emoji animations */
-        .emoji {
-            display: inline-block;
-            animation: bounce 2s infinite;
-            margin: 0 5px;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
-
-        /* Mobile responsiveness */
-        @media (max-width: 480px) {
-            .hook { font-size: 1.5em; }
-            .problem { font-size: 0.9em; }
-            .solution h2 { font-size: 1.2em; }
-            .solution p { font-size: 0.8em; }
-            .features { grid-template-columns: 1fr; gap: 4px; }
-            .feature { font-size: 0.8em; padding: 5px; }
-            .cta-button { 
-                font-size: 1em; 
-                padding: 8px 20px; 
-            }
-            .website-url { font-size: 0.85em; }
-        }
-
-        /* Glowing border effect */
-        .glow-border {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .glow-border::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7, #dda0dd);
-            border-radius: 22px;
-            z-index: -1;
-            animation: rotate 3s linear infinite;
-        }
-
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
-    <div class="particles" id="particles"></div>
-    
+    <h1>ANIME DUDE</h1>
+    <h1>Anime Dude reviews the best anime sites of 2025. Find safe & free anime websites all sorted by quality!</h1>
+
     <div class="container">
-        <div class="content">
-            <div class="hook">
-                Tired of hunting for anime sites? <span class="emoji">😤</span>
-            </div>
-            
-            <div class="problem">
-                Spending hours searching for reliable anime streaming, manga reading, and community sites?
-            </div>
-            
-            <div class="solution glow-border">
-                <h2>We've Got You Covered! <span class="emoji">✨</span></h2>
-                <p>The ultimate anime website directory - all the best sites in one place!</p>
-                
-                <div class="features">
-                    <div class="feature">
-                        <span class="emoji">🎬</span> Streaming Sites
-                    </div>
-                    <div class="feature">
-                        <span class="emoji">📚</span> Manga Readers
-                    </div>
-                    <div class="feature">
-                        <span class="emoji">👥</span> Communities
-                    </div>
-                    <div class="feature">
-                        <span class="emoji">🆓</span> 100% Free
-                    </div>
-                </div>
-            </div>
-            
-            <div class="cta">
-                <button class="cta-button" onclick="handleClick()">
-                    Check It Out Now!
-                </button>
-                <div class="hook">
-              Link in description
-              </div>
-                <div class="website-url">
-                    YourAnimeDirectory.com
-                </div>
-            </div>
+        <div class="search-engine-box">
+            <h2>Free Manga Sites</h2>
+            <p class="description">Find free anime series & movies on the most popular anime tubes in the world!</p>
+            <ul class="search-list">
+                <li><a href="https://animepahe.ru" target="_blank">1. Animepahe</a></li>
+                <li><a href="https://9animetv.to" target="_blank">2. 9animetv</a></li>
+                <li><a href="https://www.anime-planet.com" target="_blank">3. anime-planet</a></li>
+                <li><a href="https://www.aniwave.se" target="_blank">4. aniwave</a></li>
+                <li><a href="https://animixplay.com.mx" target="_blank">5. animixplay</a></li>
+                <li><a href="https://anime.uniquestream.net/" target="_blank">6. AnimeStream</a></li>
+                <li><a href="https://anime.nexus/" target="_blank">7. AnimeNexus</a></li>
+                <li><a href="https://animekai.to/home" target="_blank">8. AnimeKai</a></li>
+                <li><a href="https://kaa.mx/" target="_blank">9. KickAssAnime</a></li>
+                <li><a href="https://hianimez.to/home" target="_blank">10. HiAnime</a></li>
+                <li><a href="https://sudatchi.com/" target="_blank">11. Sudatchi</a></li>
+                <li><a href="https://anizone.to/" target="_blank">12. AniZone</a></li>
+                <li><a href="https://anixl.to/" target="_blank">13. AniXL</a></li>
+                <li><a href="https://zunime.live/home" target="_blank">14. Zunime</a></li>
+                <li><a href="https://animeyy.com/" target="_blank">15. AnimeZ</a></li>
+                <li><a href="https://www.animotvslash.org/search" target="_blank">16. Animotvslash</a></li>
+                <li><a href="https://anihq.to/home/" target="_blank">17. AniHQ</a></li>
+                <li><a href="https://www.wco.tv/" target="_blank">18. Watch Cartoon Online (WCO)</a></li>
+            </ul>
         </div>
+
+        <div class="search-engine-box">
+            <h2>Premium Anime Sites</h2>
+            <p class="description">subscription-based streaming platforms that provide legal, high-quality access to anime content!</p>
+            <ul class="search-list">
+                <li><a href="https://www.bilibili.tv/en/anime" target="_blank">1. Bilibili</a></li>
+                <li><a href="https://www.crunchyroll.com/" target="_blank">2. Crunchyroll</a></li>
+                <li><a href="https://www.disneyplus.com/" target="_blank">3. Disney+</a></li>
+                <li><a href="https://www.hidive.com/" target="_blank">4. Hidive</a></li>
+                <li><a href="https://www.hulu.com/" target="_blank">5. Hulu</a></li>
+                <li><a href="https://www.max.com/" target="_blank">6. Max</a></li>
+                <li><a href="https://www.netflix.com/" target="_blank">7. Netflix</a></li>
+                <li><a href="https://oceanveil.net/" target="_blank">8. OceanVeil</a></li>
+                <li><a href="https://www.primevideo.com/" target="_blank">9. Prime Video</a></li>
+            </ul>
+        </div>
+
+ <div class="search-engine-box">
+            <h2>Donghua</h2>
+            <p class="description">anime content produced in China. !</p>
+            <ul class="search-list">
+                <li><a href="https://animekhor.org/" target="_blank">1. Animekhor</a></li>
+                <li><a href="https://animexin.dev/" target="_blank">2. AnimeXin</a></li>
+                <li><a href="https://chikianimation.com/" target="_blank">3. Chiki Animation (2D)</a></li>
+                <li><a href="https://chikianimation.net/" target="_blank">4. Chiki Animation (3D)</a></li>
+                <li><a href="https://crimsonfansubs.com/" target="_blank">5. Crimson Subs</a></li>
+                <li><a href="https://donghuastream.org/" target="_blank">6. Donghua Stream</a></li>
+                <li><a href="https://www.dongsub.net/" target="_blank">7. Dongsub</a></li>
+                <li><a href="https://mcommerce.news/" target="_blank">8. mcommerce</a></li>
+                <li><a href="https://jhdanime.live/" target="_blank">9. JHD Anime</a></li>
+                <li><a href="https://lmanime.com/" target="_blank">10. LM Anime</a></li>
+                <li><a href="https://luciferdonghua.in/" target="_blank">11. Lucifer Donghua</a></li>
+                <li><a href="https://myanime.live/" target="_blank">12. Myanime</a></li>
+                <li><a href="https://topchineseanime.com/" target="_blank">13. Top Chinese Anime</a></li>
+                <li><a href="https://wowtopix.com/" target="_blank">14. WowTopix</a></li>
+            </ul>
+        </div>
+
+        <div class="search-engine-box">
+            <h2>Manga</h2>
+            <p class="description">Japan comics and cartooning.!</p>
+            <ul class="search-list">
+                <li><a href="https://www.azuki.co/" target="_blank">1. Azuki</a></li>
+                <li><a href="https://comikey.com/" target="_blank">2. Comikey</a></li>
+                <li><a href="https://comics.inkr.com/" target="_blank">3. INKR</a></li>
+                <li><a href="https://kmanga.kodansha.com/" target="_blank">4. KManga</a> <span class="tooltip">Available in the United States, the Philippines, Thailand, Vietnam, Hong Kong, Taiwan, India, Mexico, and Brazil.</span></li>
+                <li><a href="https://mangaplus.shueisha.co.jp/" target="_blank">5. Manga Plus</a></li>
+                <li><a href="https://global.manga-up.com/" target="_blank">6. Manga UP!</a></li>
+                <li><a href="https://www.mangamo.com/" target="_blank">7. Mangamo</a></li>
+                <li><a href="https://www.ebookrenta.com/" target="_blank">8. Renta</a></li>
+                <li><a href="https://www.viz.com/sj-offer" target="_blank">9. Shonen Jump</a> <span class="tooltip">Available in the United States, Canada, the United Kingdom, Ireland, New Zealand, Australia, South Africa, the Philippines, Singapore, and India.</span></li>
+                <li><a href="https://www.viz.com/vm-offer" target="_blank">10. VIZ Manga</a> <span class="tooltip">Available in the United States, the United Kingdom, Canada, Australia, New Zealand, and Ireland.</span></li>
+                <li><a href="https://www.yurihub.com/" target="_blank">11. YURI HUB</a></li>
+            </ul>
+        </div>
+
+         <div class="search-engine-box">
+            <h2>Manhwa & Manhua</h2>
+            <p class="description">Topics like Korean beauty standards, contemporary romance, and local customs & martial arts legends, dynastic history, and Chinese myths.
+Manhua often draws from martial arts legends, dynastic history, and Chinese myths.!</p>
+            <ul class="search-list">
+                <li><a href="https://www.lezhinus.com/en" target="_blank">1. Lezhin</a></li>
+                    <li><a href="https://manta.net/en" target="_blank">2. Manta</a></li>
+                    <li><a href="https://www.pocketcomics.com/" target="_blank">3. Pocket Comics</a></li>
+                    <li><a href="https://tapas.io/" target="_blank">4. Tapas</a></li>
+                    <li><a href="https://www.tappytoon.com/en/comics/home" target="_blank">5. Tappytoon</a></li>
+                    <li><a href="https://webcomicsapp.com/" target="_blank">6. WebComics</a></li>
+                    <li><a href="https://www.webtoons.com/en/" target="_blank">7. Webtoon</a></li>
+            </ul>
+        </div>
+
+         <div class="search-engine-box">
+            <h2>Premium Novel sites.</h2>
+            <p class="description">paid subscriptions to extensive libraries of digital novels, web fiction, and eBooks.!</p>
+            <ul class="search-list">
+                <li><a href="https://global.bookwalker.jp/" target="_blank">1. BookWalker</a></li>
+                <li><a href="https://www.crossinfworld.com/index.html" target="_blank">2. Cross Infinite World</a></li>
+                <li><a href="https://www.darkhorse.com/" target="_blank">3. Dark Horse Comics</a></li>
+                <li><a href="https://j-novel.club/" target="_blank">4. J-Novel Club</a></li>
+                <li><a href="https://kodansha.us/" target="_blank">5. Kodansha</a></li>
+                <li><a href="https://squareenixmangaandbooks.square-enix-games.com/en-us" target="_blank">6. Square Enix</a></li>
+                <li><a href="https://www.viz.com/" target="_blank">7. VIZ</a></li>
+                <li><a href="https://yenpress.com/" target="_blank">8. Yen Press</a></li>
+                <li><a href="https://www.webnovel.com/" target="_blank">9. WebNovel</a></li>
+                <li><a href="https://www.wuxiaworld.com/" target="_blank">10. Wuxia World</a></li>
+            </ul>
+        </div>
+
+        <div class="search-engine-box">
+            <h2>Scrapers Anime sites.</h2>
+            <p class="description">anime streaming platform.!</p>
+            <ul class="search-list">
+               <li><a href="https://www.animerealms.org/" target="_blank">1. Anime Realms</a></li>
+                <li><a href="https://aniplaynow.live/" target="_blank">2. AniPlay</a></li>
+                <li><a href="https://enimoe.live/" target="_blank">3. Enimoe</a></li>
+                <li><a href="https://gojo.live/" target="_blank">4. Gojo</a> <small>(Alt: <a href="https://animetsu.cc/" target="_blank">animetsu.cc</a>)</small></li>
+                <li><a href="https://www.miruro.tv/" target="_blank">5. Miruro</a> <small>(Alt: <a href="https://www.miruro.com" target="_blank">miruro.com</a>)</small></li>
+            </ul>
+        </div>
+
+
     </div>
 
-    <script>
-        // Create floating particles
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 50;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.top = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 6 + 's';
-                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
-                particlesContainer.appendChild(particle);
-            }
-        }
-
-        // Handle CTA button click
-        function handleClick() {
-            // Add click animation
-            const button = document.querySelector('.cta-button');
-            button.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                button.style.transform = 'scale(1)';
-            }, 150);
-            
-            // In a real implementation, this would redirect to your website
-            alert('Redirecting to your anime directory website!');
-        }
-
-        // Auto-restart animation loop for continuous play
-        function restartAnimation() {
-            const elements = document.querySelectorAll('[style*="animation"]');
-            elements.forEach(el => {
-                el.style.animation = 'none';
-                el.offsetHeight; // Trigger reflow
-                el.style.animation = null;
-            });
-        }
-
-        // Initialize
-        createParticles();
-        
-        // Restart animation every 8 seconds for looping effect
-        setInterval(restartAnimation, 8000);
-        
-        // Add some interactive hover effects
-        document.querySelectorAll('.feature').forEach(feature => {
-            feature.addEventListener('mouseenter', function() {
-                this.style.background = 'rgba(255, 255, 255, 0.2)';
-            });
-            
-            feature.addEventListener('mouseleave', function() {
-                this.style.background = 'rgba(255, 255, 255, 0.1)';
-            });
-        });
-    </script>
+    <div class="footer">
+        <p>© 2023 Anime & Manga Resources Directory</p>
+    </div>
 </body>
 </html>
