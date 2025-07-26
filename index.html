@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Resources Directory</title>
+    <title>AI Websites Directory</title>
     <style>
         * {
             margin: 0;
@@ -19,242 +19,406 @@
             line-height: 1.6;
         }
 
-        h1 {
-            text-align: left;
-            color: white;
-            margin: 0 0 20px 0;
-            font-size: 1.5em;
-            font-weight: 700;
-            padding-left: 10px;
-        }
-
-        /* Container for side-by-side layout */
         .container {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
 
-        .search-engine-box {
-            width: 300px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 8px;
-            padding: 15px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            flex: 0 0 300px; /* Prevents boxes from growing/shrinking */
-        }
-
-        .description {
-            font-size: 0.8em;
-            color: #7f8c8d;
-            margin-bottom: 0px;
-            font-style: italic;
-            text-align: left;
-            padding-left: 0px;
-        }
-
-        .search-engine-box h2 {
+        h1 {
+            text-align: center;
             color: #2c3e50;
-            margin-bottom: 15px;
-            font-size: 1.3em;
-            font-weight: 600;
-            padding-bottom: 5px;
-            border-bottom: 2px solid #667eea;
-        }
-
-        .search-list {
-            list-style-type: none;
-        }
-
-        .search-list li {
             margin-bottom: 10px;
-            font-size: 1em;
+            font-size: 2.5em;
+            font-weight: 700;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .search-list a {
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+
+        .category {
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .category h2 {
             color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            font-weight: 600;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .link-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .link-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            border-color: #667eea;
+        }
+
+        .link-card h3 {
+            margin-bottom: 8px;
+            color: #2c3e50;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        .link-card p {
+            color: #7f8c8d;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+        }
+
+        .link-card a {
+            color: #667eea;
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.2s ease;
-            display: block;
-            padding: 3px 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s ease;
         }
 
-        .search-list a:hover {
+        .link-card a:hover {
             color: #764ba2;
-            text-decoration: underline;
+        }
+
+        .link-card a::after {
+            content: '→';
+            transition: transform 0.3s ease;
+        }
+
+        .link-card a:hover::after {
+            transform: translateX(3px);
         }
 
         .footer {
-            text-align: left;
-            margin-top: 30px;
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.8em;
-            padding-left: 10px;
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            color: #7f8c8d;
         }
 
-        /* Responsive design */
         @media (max-width: 768px) {
             .container {
-                flex-direction: column;
+                padding: 20px;
             }
             
-            .search-engine-box {
-                width: 100%;
-                flex: 1;
+            h1 {
+                font-size: 2em;
+            }
+            
+            .links-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <h1>ANIME DUDE</h1>
-    <h1>Anime Dude reviews the best anime sites of 2025. Find safe & free anime websites all sorted by quality!</h1>
-
     <div class="container">
-        <div class="search-engine-box">
-            <h2>Free Manga Sites</h2>
-            <p class="description">Find free anime series & movies on the most popular anime tubes in the world!</p>
-            <ul class="search-list">
-                <li><a href="https://animepahe.ru" target="_blank">1. Animepahe</a></li>
-                <li><a href="https://9animetv.to" target="_blank">2. 9animetv</a></li>
-                <li><a href="https://www.anime-planet.com" target="_blank">3. anime-planet</a></li>
-                <li><a href="https://www.aniwave.se" target="_blank">4. aniwave</a></li>
-                <li><a href="https://animixplay.com.mx" target="_blank">5. animixplay</a></li>
-                <li><a href="https://anime.uniquestream.net/" target="_blank">6. AnimeStream</a></li>
-                <li><a href="https://anime.nexus/" target="_blank">7. AnimeNexus</a></li>
-                <li><a href="https://animekai.to/home" target="_blank">8. AnimeKai</a></li>
-                <li><a href="https://kaa.mx/" target="_blank">9. KickAssAnime</a></li>
-                <li><a href="https://hianimez.to/home" target="_blank">10. HiAnime</a></li>
-                <li><a href="https://sudatchi.com/" target="_blank">11. Sudatchi</a></li>
-                <li><a href="https://anizone.to/" target="_blank">12. AniZone</a></li>
-                <li><a href="https://anixl.to/" target="_blank">13. AniXL</a></li>
-                <li><a href="https://zunime.live/home" target="_blank">14. Zunime</a></li>
-                <li><a href="https://animeyy.com/" target="_blank">15. AnimeZ</a></li>
-                <li><a href="https://www.animotvslash.org/search" target="_blank">16. Animotvslash</a></li>
-                <li><a href="https://anihq.to/home/" target="_blank">17. AniHQ</a></li>
-                <li><a href="https://www.wco.tv/" target="_blank">18. Watch Cartoon Online (WCO)</a></li>
-            </ul>
+        <h1>AI Websites Directory</h1>
+        <p class="subtitle">Your comprehensive guide to AI tools and platforms</p>
+
+        <div class="category">
+            <h2>AI Assistants & Chatbots</h2>
+            <div class="links-grid">
+                <div class="link-card">
+                    <h3>Claude</h3>
+                    <p>Anthropic's AI assistant for conversations, analysis, and creative tasks</p>
+                    <a href="https://claude.ai" target="_blank">Visit Claude</a>
+                </div>
+                <div class="link-card">
+                    <h3>ChatGPT</h3>
+                    <p>OpenAI's conversational AI for general-purpose assistance</p>
+                    <a href="https://chat.openai.com" target="_blank">Visit ChatGPT</a>
+                </div>
+                <div class="link-card">
+                    <h3>Gemini</h3>
+                    <p>Google's AI assistant for multimodal interactions</p>
+                    <a href="https://gemini.google.com" target="_blank">Visit Gemini</a>
+                </div>
+                <div class="link-card">
+                    <h3>Perplexity</h3>
+                    <p>AI-powered search and research assistant</p>
+                    <a href="https://perplexity.ai" target="_blank">Visit Perplexity</a>
+                </div>
+                <div class="link-card">
+                  <h3>Microsoft Copilot</h3>
+                  <p>Microsoft AI-powered assistant for productivity tasks</p>
+                  <a href="https://copilot.microsoft.com" target="_blank">Visit Microsoft Copilot</a>
+                </div>
+            </div>
         </div>
 
-        <div class="search-engine-box">
-            <h2>Premium Anime Sites</h2>
-            <p class="description">subscription-based streaming platforms that provide legal, high-quality access to anime content!</p>
-            <ul class="search-list">
-                <li><a href="https://www.bilibili.tv/en/anime" target="_blank">1. Bilibili</a></li>
-                <li><a href="https://www.crunchyroll.com/" target="_blank">2. Crunchyroll</a></li>
-                <li><a href="https://www.disneyplus.com/" target="_blank">3. Disney+</a></li>
-                <li><a href="https://www.hidive.com/" target="_blank">4. Hidive</a></li>
-                <li><a href="https://www.hulu.com/" target="_blank">5. Hulu</a></li>
-                <li><a href="https://www.max.com/" target="_blank">6. Max</a></li>
-                <li><a href="https://www.netflix.com/" target="_blank">7. Netflix</a></li>
-                <li><a href="https://oceanveil.net/" target="_blank">8. OceanVeil</a></li>
-                <li><a href="https://www.primevideo.com/" target="_blank">9. Prime Video</a></li>
-            </ul>
+        <div class="category">
+    <h2>AI Art & Image Generation</h2>
+    <div class="links-grid">
+        <div class="link-card">
+            <h3>Midjourney</h3>
+            <p>High-quality AI image generation through Discord</p>
+            <a href="https://midjourney.com" target="_blank">Visit Midjourney</a>
         </div>
-
- <div class="search-engine-box">
-            <h2>Donghua</h2>
-            <p class="description">anime content produced in China. !</p>
-            <ul class="search-list">
-                <li><a href="https://animekhor.org/" target="_blank">1. Animekhor</a></li>
-                <li><a href="https://animexin.dev/" target="_blank">2. AnimeXin</a></li>
-                <li><a href="https://chikianimation.com/" target="_blank">3. Chiki Animation (2D)</a></li>
-                <li><a href="https://chikianimation.net/" target="_blank">4. Chiki Animation (3D)</a></li>
-                <li><a href="https://crimsonfansubs.com/" target="_blank">5. Crimson Subs</a></li>
-                <li><a href="https://donghuastream.org/" target="_blank">6. Donghua Stream</a></li>
-                <li><a href="https://www.dongsub.net/" target="_blank">7. Dongsub</a></li>
-                <li><a href="https://mcommerce.news/" target="_blank">8. mcommerce</a></li>
-                <li><a href="https://jhdanime.live/" target="_blank">9. JHD Anime</a></li>
-                <li><a href="https://lmanime.com/" target="_blank">10. LM Anime</a></li>
-                <li><a href="https://luciferdonghua.in/" target="_blank">11. Lucifer Donghua</a></li>
-                <li><a href="https://myanime.live/" target="_blank">12. Myanime</a></li>
-                <li><a href="https://topchineseanime.com/" target="_blank">13. Top Chinese Anime</a></li>
-                <li><a href="https://wowtopix.com/" target="_blank">14. WowTopix</a></li>
-            </ul>
+        <div class="link-card">
+            <h3>DALL-E 3</h3>
+            <p>OpenAI's advanced image generation from text descriptions</p>
+            <a href="https://openai.com/dall-e-3" target="_blank">Visit DALL-E</a>
         </div>
-
-        <div class="search-engine-box">
-            <h2>Manga</h2>
-            <p class="description">Japan comics and cartooning.!</p>
-            <ul class="search-list">
-                <li><a href="https://www.azuki.co/" target="_blank">1. Azuki</a></li>
-                <li><a href="https://comikey.com/" target="_blank">2. Comikey</a></li>
-                <li><a href="https://comics.inkr.com/" target="_blank">3. INKR</a></li>
-                <li><a href="https://kmanga.kodansha.com/" target="_blank">4. KManga</a> <span class="tooltip">Available in the United States, the Philippines, Thailand, Vietnam, Hong Kong, Taiwan, India, Mexico, and Brazil.</span></li>
-                <li><a href="https://mangaplus.shueisha.co.jp/" target="_blank">5. Manga Plus</a></li>
-                <li><a href="https://global.manga-up.com/" target="_blank">6. Manga UP!</a></li>
-                <li><a href="https://www.mangamo.com/" target="_blank">7. Mangamo</a></li>
-                <li><a href="https://www.ebookrenta.com/" target="_blank">8. Renta</a></li>
-                <li><a href="https://www.viz.com/sj-offer" target="_blank">9. Shonen Jump</a> <span class="tooltip">Available in the United States, Canada, the United Kingdom, Ireland, New Zealand, Australia, South Africa, the Philippines, Singapore, and India.</span></li>
-                <li><a href="https://www.viz.com/vm-offer" target="_blank">10. VIZ Manga</a> <span class="tooltip">Available in the United States, the United Kingdom, Canada, Australia, New Zealand, and Ireland.</span></li>
-                <li><a href="https://www.yurihub.com/" target="_blank">11. YURI HUB</a></li>
-            </ul>
+        <div class="link-card">
+            <h3>Stable Diffusion</h3>
+            <p>Open-source AI image generation platform</p>
+            <a href="https://stability.ai" target="_blank">Visit Stability AI</a>
         </div>
-
-         <div class="search-engine-box">
-            <h2>Manhwa & Manhua</h2>
-            <p class="description">Topics like Korean beauty standards, contemporary romance, and local customs & martial arts legends, dynastic history, and Chinese myths.
-Manhua often draws from martial arts legends, dynastic history, and Chinese myths.!</p>
-            <ul class="search-list">
-                <li><a href="https://www.lezhinus.com/en" target="_blank">1. Lezhin</a></li>
-                    <li><a href="https://manta.net/en" target="_blank">2. Manta</a></li>
-                    <li><a href="https://www.pocketcomics.com/" target="_blank">3. Pocket Comics</a></li>
-                    <li><a href="https://tapas.io/" target="_blank">4. Tapas</a></li>
-                    <li><a href="https://www.tappytoon.com/en/comics/home" target="_blank">5. Tappytoon</a></li>
-                    <li><a href="https://webcomicsapp.com/" target="_blank">6. WebComics</a></li>
-                    <li><a href="https://www.webtoons.com/en/" target="_blank">7. Webtoon</a></li>
-            </ul>
+        <div class="link-card">
+            <h3>Adobe Firefly</h3>
+            <p>Creative AI tools integrated with Adobe products</p>
+            <a href="https://firefly.adobe.com" target="_blank">Visit Adobe Firefly</a>
         </div>
-
-         <div class="search-engine-box">
-            <h2>Premium Novel sites.</h2>
-            <p class="description">paid subscriptions to extensive libraries of digital novels, web fiction, and eBooks.!</p>
-            <ul class="search-list">
-                <li><a href="https://global.bookwalker.jp/" target="_blank">1. BookWalker</a></li>
-                <li><a href="https://www.crossinfworld.com/index.html" target="_blank">2. Cross Infinite World</a></li>
-                <li><a href="https://www.darkhorse.com/" target="_blank">3. Dark Horse Comics</a></li>
-                <li><a href="https://j-novel.club/" target="_blank">4. J-Novel Club</a></li>
-                <li><a href="https://kodansha.us/" target="_blank">5. Kodansha</a></li>
-                <li><a href="https://squareenixmangaandbooks.square-enix-games.com/en-us" target="_blank">6. Square Enix</a></li>
-                <li><a href="https://www.viz.com/" target="_blank">7. VIZ</a></li>
-                <li><a href="https://yenpress.com/" target="_blank">8. Yen Press</a></li>
-                <li><a href="https://www.webnovel.com/" target="_blank">9. WebNovel</a></li>
-                <li><a href="https://www.wuxiaworld.com/" target="_blank">10. Wuxia World</a></li>
-            </ul>
+        <div class="link-card">
+            <h3>Leonardo AI</h3>
+            <p>AI image generation with focus on game assets and creative content</p>
+            <a href="https://leonardo.ai" target="_blank">Visit Leonardo AI</a>
         </div>
-
-        <div class="search-engine-box">
-            <h2>Scrapers Anime sites.</h2>
-            <p class="description">anime streaming platform.!</p>
-            <ul class="search-list">
-               <li><a href="https://www.animerealms.org/" target="_blank">1. Anime Realms</a></li>
-                <li><a href="https://aniplaynow.live/" target="_blank">2. AniPlay</a></li>
-                <li><a href="https://enimoe.live/" target="_blank">3. Enimoe</a></li>
-                <li><a href="https://gojo.live/" target="_blank">4. Gojo</a> <small>(Alt: <a href="https://animetsu.cc/" target="_blank">animetsu.cc</a>)</small></li>
-                <li><a href="https://www.miruro.tv/" target="_blank">5. Miruro</a> <small>(Alt: <a href="https://www.miruro.com" target="_blank">miruro.com</a>)</small></li>
-            </ul>
+        <div class="link-card">
+            <h3>Canva AI</h3>
+            <p>AI-powered design tools with Magic Media image generation</p>
+            <a href="https://canva.com/ai-image-generator" target="_blank">Visit Canva AI</a>
         </div>
-
-         <div class="search-engine-box">
-    <h2>Bitcoin Binance Address.</h2>
-    <p class="description">Pls Donate and support for new projects!
-        12FBjN7vhU4rAYgMEXtKB4ArVrZTYeLJUV
-    </p>
-    <ul class="search-list">
-        <img 
-            src="photo_2025-07-18_23-30-50.jpg" 
-            alt="Binance BTC Deposit Address" 
-            style="width: 300px; height: auto;"  <!-- Adjust width as needed -->
-        >
-    </ul>
-</div>
-
-
+        <div class="link-card">
+            <h3>RunwayML</h3>
+            <p>AI creative suite with image generation and editing tools</p>
+            <a href="https://runwayml.com" target="_blank">Visit RunwayML</a>
+        </div>
+        <div class="link-card">
+            <h3>Artbreeder</h3>
+            <p>Collaborative AI tool for creating and evolving images</p>
+            <a href="https://artbreeder.com" target="_blank">Visit Artbreeder</a>
+        </div>
+        <div class="link-card">
+            <h3>DreamStudio</h3>
+            <p>Web interface for Stable Diffusion with advanced controls</p>
+            <a href="https://dreamstudio.ai" target="_blank">Visit DreamStudio</a>
+        </div>
+        <div class="link-card">
+            <h3>NightCafe</h3>
+            <p>AI art generator with multiple algorithms and community features</p>
+            <a href="https://nightcafe.studio" target="_blank">Visit NightCafe</a>
+        </div>
+        <div class="link-card">
+            <h3>Jasper Art</h3>
+            <p>AI image generation integrated with Jasper's content creation suite</p>
+            <a href="https://jasper.ai/art" target="_blank">Visit Jasper Art</a>
+        </div>
+        <div class="link-card">
+            <h3>Deep Dream Generator</h3>
+            <p>AI image creation using Google's Deep Dream neural network</p>
+            <a href="https://deepdreamgenerator.com" target="_blank">Visit Deep Dream</a>
+        </div>
+        <div class="link-card">
+            <h3>Playground AI</h3>
+            <p>Free AI image generator with multiple models and editing tools</p>
+            <a href="https://playgroundai.com" target="_blank">Visit Playground AI</a>
+        </div>
+        <div class="link-card">
+            <h3>BlueWillow</h3>
+            <p>Free AI image generation tool accessible through Discord</p>
+            <a href="https://bluewillow.ai" target="_blank">Visit BlueWillow</a>
+        </div>
+        <div class="link-card">
+            <h3>Craiyon</h3>
+            <p>Free AI image generator, formerly known as DALL-E mini</p>
+            <a href="https://craiyon.com" target="_blank">Visit Craiyon</a>
+        </div>
+        <div class="link-card">
+            <h3>Lexica</h3>
+            <p>AI image search engine and Stable Diffusion image generator</p>
+            <a href="https://lexica.art" target="_blank">Visit Lexica</a>
+        </div>
+        <div class="link-card">
+            <h3>Wombo Dream</h3>
+            <p>Mobile-first AI art generator with various artistic styles</p>
+            <a href="https://dream.ai" target="_blank">Visit Wombo Dream</a>
+        </div>
+        <div class="link-card">
+            <h3>Hotpot AI</h3>
+            <p>AI image generator with additional graphic design tools</p>
+            <a href="https://hotpot.ai/art-generator" target="_blank">Visit Hotpot AI</a>
+        </div>
+        <div class="link-card">
+            <h3>Starry AI</h3>
+            <p>AI art generator app with NFT marketplace integration</p>
+            <a href="https://starryai.com" target="_blank">Visit Starry AI</a>
+        </div>
+        <div class="link-card">
+            <h3>Photosonic</h3>
+            <p>AI image generator by WriteSonic for realistic and artistic images</p>
+            <a href="https://photosonic.writesonic.com" target="_blank">Visit Photosonic</a>
+        </div>
+        <div class="link-card">
+            <h3>Dezgo</h3>
+            <p>Text-to-image AI generator powered by Stable Diffusion</p>
+            <a href="https://dezgo.com" target="_blank">Visit Dezgo</a>
+        </div>
+        <div class="link-card">
+            <h3>Picso</h3>
+            <p>AI art generator with multiple styles and mobile app</p>
+            <a href="https://picso.ai" target="_blank">Visit Picso</a>
+        </div>
+        <div class="link-card">
+            <h3>Fotor AI</h3>
+            <p>AI image generator with photo editing and design tools</p>
+            <a href="https://fotor.com/ai-image-generator" target="_blank">Visit Fotor AI</a>
+        </div>
+        <div class="link-card">
+            <h3>CF Spark</h3>
+            <p>Creative Fabrica's AI image generator for creative projects</p>
+            <a href="https://www.creativefabrica.com/spark" target="_blank">Visit CF Spark</a>
+        </div>
     </div>
 
-    <div class="footer">
-        <p>© 2023 Anime & Manga Resources Directory</p>
+        <div class="category">
+            <h2>AI Video & Audio</h2>
+            <div class="links-grid">
+                <div class="link-card">
+                    <h3>RunwayML</h3>
+                    <p>AI video editing and generation tools</p>
+                    <a href="https://runwayml.com" target="_blank">Visit RunwayML</a>
+                </div>
+                <div class="link-card">
+                    <h3>ElevenLabs</h3>
+                    <p>AI voice synthesis and speech generation</p>
+                    <a href="https://elevenlabs.io" target="_blank">Visit ElevenLabs</a>
+                </div>
+                <div class="link-card">
+                    <h3>Synthesia</h3>
+                    <p>AI avatar video generation platform</p>
+                    <a href="https://synthesia.io" target="_blank">Visit Synthesia</a>
+                </div>
+                <div class="link-card">
+                    <h3>Luma AI</h3>
+                    <p>AI-powered 3D capture and video generation</p>
+                    <a href="https://lumalabs.ai" target="_blank">Visit Luma AI</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2>AI Development & APIs</h2>
+            <div class="links-grid">
+                <div class="link-card">
+                    <h3>OpenAI API</h3>
+                    <p>Access GPT models and other AI services</p>
+                    <a href="https://platform.openai.com" target="_blank">Visit OpenAI API</a>
+                </div>
+                <div class="link-card">
+                    <h3>Hugging Face</h3>
+                    <p>Open-source AI model hub and development platform</p>
+                    <a href="https://huggingface.co" target="_blank">Visit Hugging Face</a>
+                </div>
+                <div class="link-card">
+                    <h3>Replicate</h3>
+                    <p>Run and deploy AI models in the cloud</p>
+                    <a href="https://replicate.com" target="_blank">Visit Replicate</a>
+                </div>
+                <div class="link-card">
+                    <h3>Anthropic API</h3>
+                    <p>Access Claude AI models for development</p>
+                    <a href="https://console.anthropic.com" target="_blank">Visit Anthropic API</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2>AI Writing & Content</h2>
+            <div class="links-grid">
+                <div class="link-card">
+                    <h3>Jasper</h3>
+                    <p>AI copywriting and content creation platform</p>
+                    <a href="https://jasper.ai" target="_blank">Visit Jasper</a>
+                </div>
+                <div class="link-card">
+                    <h3>Copy.ai</h3>
+                    <p>AI-powered writing and marketing copy generator</p>
+                    <a href="https://copy.ai" target="_blank">Visit Copy.ai</a>
+                </div>
+                <div class="link-card">
+                    <h3>Notion AI</h3>
+                    <p>AI writing assistant integrated with Notion</p>
+                    <a href="https://notion.so/ai" target="_blank">Visit Notion AI</a>
+                </div>
+                <div class="link-card">
+                    <h3>Grammarly</h3>
+                    <p>AI-powered writing assistance and grammar checking</p>
+                    <a href="https://grammarly.com" target="_blank">Visit Grammarly</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2>AI Research & Learning</h2>
+            <div class="links-grid">
+                <div class="link-card">
+                    <h3>Papers with Code</h3>
+                    <p>Machine learning research papers with code implementations</p>
+                    <a href="https://paperswithcode.com" target="_blank">Visit Papers with Code</a>
+                </div>
+                <div class="link-card">
+                    <h3>AI News</h3>
+                    <p>Latest developments in artificial intelligence</p>
+                    <a href="https://artificialintelligence-news.com" target="_blank">Visit AI News</a>
+                </div>
+                <div class="link-card">
+                    <h3>Towards Data Science</h3>
+                    <p>Medium publication covering AI and data science</p>
+                    <a href="https://towardsdatascience.com" target="_blank">Visit Towards Data Science</a>
+                </div>
+                <div class="link-card">
+                    <h3>Fast.ai</h3>
+                    <p>Practical deep learning courses and resources</p>
+                    <a href="https://fast.ai" target="_blank">Visit Fast.ai</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Stay updated with the latest AI developments and tools</p>
+        </div>
     </div>
 </body>
 </html>
